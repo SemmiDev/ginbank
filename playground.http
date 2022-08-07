@@ -1,0 +1,94 @@
+### CREATE USER
+
+POST http://localhost:8080/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "JohnDoe",
+  "password": "JohnDoe123",
+  "full_name": "JohnDoe123",
+  "email": "JohnDoe@gmail.com"
+}
+
+
+### GRPC GATEWAY CREATE USER
+POST http://localhost:8080/v1/create_user
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "testestest123",
+  "password": "testestest123",
+  "full_name": "testestest",
+  "email": "testestest123@gmail.com"
+}
+
+###  LOGIN
+
+POST http://localhost:8080/users/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "password": "JohnDoe123"
+}
+
+
+### GRPC GATEWAY
+
+POST http://localhost:8080/v1/login_user
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "password": "JohnDoe123"
+}
+
+### CREATE ACCOUNT
+
+POST http://localhost:8080/accounts
+Accept: application/json
+Content-Type: application/json
+authorization: bearer v2.local.IvPp1b96Uk6nBAVVpjnRq44pEfexvRgmxEovyTqImJ6T0MYg4QgmTQrwcFfGEFp0j8GlQSK8O2TEFWqqg2L8ZGkL3fa9bTT25BBlol7_OX3SEUeVIFQPRH_2-x9a4nIFGj4YGRsMk-JhdQEnzCSSHBRV_9yYwmdGujkU_zOhCxc1iXrEmPlOjNnfdXqQwzOEduaKt8NQrM3-5SqkfQQZglz_43dlcXZP4qxfhv9UYimrMx9bXg3FGW2tYO9qsHm8ReEXk_PS73KAcCszKzol.bnVsbA
+
+{
+  "currency": "IDR"
+}
+
+### GET ACCOUNT DETAIL
+
+GET http://localhost:8080/accounts/2
+Accept: application/json
+authorization: bearer v2.local.IvPp1b96Uk6nBAVVpjnRq44pEfexvRgmxEovyTqImJ6T0MYg4QgmTQrwcFfGEFp0j8GlQSK8O2TEFWqqg2L8ZGkL3fa9bTT25BBlol7_OX3SEUeVIFQPRH_2-x9a4nIFGj4YGRsMk-JhdQEnzCSSHBRV_9yYwmdGujkU_zOhCxc1iXrEmPlOjNnfdXqQwzOEduaKt8NQrM3-5SqkfQQZglz_43dlcXZP4qxfhv9UYimrMx9bXg3FGW2tYO9qsHm8ReEXk_PS73KAcCszKzol.bnVsbA
+
+
+### GET ACCOUNTS
+
+GET http://localhost:8080/accounts?page_id=1&page_size=10
+Accept: application/json
+authorization: bearer v2.local.UuqeDhLJKIJY0-ga_hjflVmqpYZE-Yx1HDZhVESUKmCh0y8G76JdagvPiGzbpWWDn894Q5fT6JgNOULZKeEFfticDclqIYybXR4GiOxjXq_r-impZ7TsB9tThOHeZhgJZ4VQ9fwZIhZAhF-_UdgqwuH1V0VmiSoBaL7RgN-mLSLTKZ8ah0UasH8SdU9CgjjGVCxUSuuu-bByUTT0u7ywgmAIPhs7QEoVxs-qFfmaFoQ3mVbvt3uYY5mGuIYIEYHXCNENEMGX_MI4VObvXgeO.bnVsbA
+
+### TRANSFER
+POST http://localhost:8080/transfers
+Accept: application/json
+Content-Type: application/json
+authorization: bearer v2.local.IvPp1b96Uk6nBAVVpjnRq44pEfexvRgmxEovyTqImJ6T0MYg4QgmTQrwcFfGEFp0j8GlQSK8O2TEFWqqg2L8ZGkL3fa9bTT25BBlol7_OX3SEUeVIFQPRH_2-x9a4nIFGj4YGRsMk-JhdQEnzCSSHBRV_9yYwmdGujkU_zOhCxc1iXrEmPlOjNnfdXqQwzOEduaKt8NQrM3-5SqkfQQZglz_43dlcXZP4qxfhv9UYimrMx9bXg3FGW2tYO9qsHm8ReEXk_PS73KAcCszKzol.bnVsbA
+
+{
+  "from_account_id": 2,
+  "to_account_id": 1,
+  "amount": 10000,
+  "currency": "IDR"
+}
+
+### RENEW TOKEN
+POST http://localhost:8080/tokens/renew_access
+Accept: application/json
+Content-Type: application/json
+
+{
+  "refresh_token": "v2.local.GlaeoRR_wwDPT6mRccEFg8DLsXVZ1OV6UYoQ5j0kS7w0mq5IyiIqIgGjKhqSI174pfLppdexVHyDOCuwC9HGkLNR4bkaHIxnOBcQSRlniuV45iUNvii26H8__bLSW0UEgMrxqFqvm_bkRctrI8KfXQt6UvWQ-Z34Pe31NZ-aiKt8CGSDu8ByxK9PPDnjjm4_E9nfTsXBarZfE9DBhQ9WzGd2CUa3kA9XPSz4kFjlnU1SZF3DYJgbXlujmhmycEjLKGCoXoRexBwWr_L6WtZN.bnVsbA"
+}
